@@ -12,7 +12,7 @@ module.exports = {
         assetModuleFilename: 'assets/images/[hash][ext][query]'
     },
     mode: 'development',
-    watch: true,
+    //watch: true,
     resolve: {
         extensions: ['.js'],
         alias: {
@@ -76,5 +76,11 @@ module.exports = {
             ]
         }),
         new Dotenv(),
-    ]
+    ],
+    devServer: {
+        static: path.join(__dirname, 'dist'),
+        compress: true,
+        historyApiFallback: true,
+        port: 3006,
+    },
 }
